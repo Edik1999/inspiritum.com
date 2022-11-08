@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/inspiritum.com/static/css/main.5a669a82.css",
+    "main.js": "/inspiritum.com/static/js/main.ebad84d1.js",
+    "static/js/787.a647657c.chunk.js": "/inspiritum.com/static/js/787.a647657c.chunk.js",
+    "static/media/privacy_policy.pdf": "/inspiritum.com/static/media/privacy_policy.a52a8646533dba23b11a.pdf",
+    "static/media/background.jpeg": "/inspiritum.com/static/media/background.51b87764133adb9ea393.jpeg",
+    "static/media/privacy_policy_rtb.pdf": "/inspiritum.com/static/media/privacy_policy_rtb.2743f7f1b9d0caa809ae.pdf",
+    "static/media/Helvetica.woff": "/inspiritum.com/static/media/Helvetica.3eb14599771d714f57d4.woff",
+    "static/media/Helvetica.woff2": "/inspiritum.com/static/media/Helvetica.c1ce8aa6c6f3dc12c950.woff2",
+    "static/media/HelveticaBold.woff": "/inspiritum.com/static/media/HelveticaBold.e941872262a60140e525.woff",
+    "static/media/HelveticaBold.woff2": "/inspiritum.com/static/media/HelveticaBold.0b4cdf5930e360041d79.woff2",
+    "index.html": "/inspiritum.com/index.html",
+    "main.5a669a82.css.map": "/inspiritum.com/static/css/main.5a669a82.css.map",
+    "main.ebad84d1.js.map": "/inspiritum.com/static/js/main.ebad84d1.js.map",
+    "787.a647657c.chunk.js.map": "/inspiritum.com/static/js/787.a647657c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a669a82.css",
+    "static/js/main.ebad84d1.js"
+  ]
+}
