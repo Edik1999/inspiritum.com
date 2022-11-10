@@ -1,0 +1,39 @@
+@import './../variables'
+
+    
+.home
+    padding-top: calc($headerHeight + $basePagePadding)
+    
+    @media (max-width: 640px)
+        padding-top: calc(20rem + $mobilePagePadding)
+
+    &__title
+        background: -webkit-linear-gradient(top left,#b8b8b8,#fff 60%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+
+        &::after
+            background: #fff
+
+    .news
+        position: absolute
+        width: $fourBlocks
+        padding: 0 $basePagePadding
+        height: 200px
+        right: 0
+        bottom: $basePagePadding
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: 33.3%
+
+        @media ( max-width: 640px )
+            display: none
+
+        &__date
+            margin-bottom: 24px
+            opacity: .2
+
+        &__link
+            font-size: $mediumFontSize
+            color: #ffffff
+            font-weight: 300

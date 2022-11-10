@@ -1,0 +1,143 @@
+@import './variables'
+
+@font-face
+    font-family: helvetica
+    src: url(../fonts/helvetica/Helvetica.woff2) format('woff2'), url(../fonts/helvetica/Helvetica.woff) format('woff')
+    font-weight: 300
+    font-style: normal
+
+@font-face
+    font-family: helvetica
+    src: url(../fonts/helvetica/HelveticaBold.woff2) format('woff2'), url(../fonts/helvetica/HelveticaBold.woff) format('woff')
+    font-weight: 600
+    font-style: normal
+
+.hidden
+    visibility: hidden
+
+.d-none
+    display: none
+
+.sidesPadding
+    padding-left: $basePagePadding
+    padding-right: $basePagePadding
+    @media ( max-width: 640px )
+        padding-left: $mobilePagePadding
+        padding-right: $mobilePagePadding
+
+.leftSidePadding
+    padding-left: $basePagePadding
+    @media ( max-width: 640px )
+        padding-left: $mobilePagePadding
+
+.rightSidePadding
+    padding-right: $basePagePadding
+    @media ( max-width: 640px )
+        padding-right: $mobilePagePadding
+
+.background
+    position: fixed
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    background: #101010
+
+    &__inner
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+
+    &__image
+        background-image: url(../img/background.jpeg)
+        background-size: cover
+        background-position: center
+        opacity: .4
+
+    &__white
+        background: #ffffff
+
+.lines
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    opacity: .175
+
+    @media (max-width: 640px)
+        display: none
+
+    &::before, &::after
+        content: ""
+        position: absolute
+        top: 0
+        bottom: 0
+        width: calc($fiveBlocks - 2px)
+        border-right: 1px solid #cbcbcb
+        border-left: 1px solid #cbcbcb
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: calc($fourBlocks - 2px)
+
+    &::before
+        left: $fiveBlocks
+        @media (min-width: 641px) and (max-width: 1200px)
+            left: $fourBlocks
+
+    &::after
+        right: $fiveBlocks
+        @media (min-width: 641px) and (max-width: 1200px)
+            right: $fourBlocks
+            border-left: none
+
+.content
+    position: relative
+    min-height: 100vh
+    padding-top: calc($headerHeight + $basePagePadding)
+    width: calc($fiveBlocks * 4)
+
+    @media (min-width: 641px) and (max-width: 1200px)
+        width: calc($fourBlocks * 3)
+    
+    @media (max-width: 640px)
+        padding-top: calc(11.538rem + $mobilePagePadding)
+        width: 100%
+
+    &__mainTitle
+        margin: 0
+        letter-spacing: -4.8px
+        font-size: 9.231rem
+        line-height: 1
+        color: #000000
+        margin-bottom: 0.75em
+
+        @media (max-width: 1200px)
+            font-size: 7.692rem
+
+        @media (max-width: 640px)
+            font-size: 5.385rem
+            letter-spacing: -1.8px
+
+        &::after
+            content: ""
+            display: inline-block
+            width: 18px
+            height: 18px
+            margin-left: 20px
+            background: #000000
+            border-radius: 100%
+
+            @media (max-width: 640px)
+                width: 7px
+                height: 7px
+                margin-left: 8px
+    
+    &__wrapper
+        width: 75%
+        margin-left: auto
+    
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: 100%

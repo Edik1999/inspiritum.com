@@ -1,0 +1,132 @@
+@import './variables'
+    
+.menuLayer
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    padding-top: $basePagePadding
+    display: flex
+    background: #091cab
+    opacity: 0
+    visibility: hidden
+    transition: visibility 0s .3s, opacity .3s
+
+    @media ( max-width: 640px )
+        padding-top: calc($mobileHeaderHeight + $mobilePagePadding)
+        flex-direction: column
+
+    &.active
+        visibility: visible
+        opacity: 1
+        transition: opacity .3s ease
+
+    &__footer
+        position: absolute
+        bottom: $basePagePadding
+        right: 0
+        width: $fiveBlocks
+
+        @media ( max-width: 640px )
+            position: fixed
+            bottom: 0
+            right: unset
+            width: 100%
+            height: 8rem
+            display: flex
+            align-items: center
+            background: #091cab
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: $fourBlocks
+
+        a
+            line-height: 26px
+            text-decoration: none
+            color: #ffffff
+            transition: opacity .2s ease
+
+            @media ( max-width: 640px )
+                font-size: $bigFontSize
+                line-height: 1
+
+            &:hover
+                opacity: .4
+
+    .nav
+        position: absolute
+        width: $fiveBlocks
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: $fourBlocks
+
+        @media ( max-width: 640px )
+            position: static
+            width: 100%
+            margin-bottom: 5.231rem
+
+        &:first-of-type
+            right: calc($fiveBlocks * 2)
+            @media (min-width: 641px) and (max-width: 1200px)
+                right: calc($fourBlocks * 2)
+
+        &:nth-of-type(2)
+            right: $fiveBlocks
+            @media (min-width: 641px) and (max-width: 1200px)
+                right: $fourBlocks
+
+        &:nth-of-type(3)
+            right: 0
+
+        &__title
+            color: #ffffff
+            opacity: .4
+            @media ( max-width: 640px )
+                font-size: 1.538rem
+                opacity: .225
+
+    .list
+        margin: 0
+        margin-top: 75px
+        list-style: none
+        padding-left: 0
+
+        @media (max-width: 640px)
+            margin-top: 2.615rem
+
+        &--small-mt
+            margin-top: 74px
+            @media (max-width: 640px)
+                display: none
+
+        &--large-mt
+            margin-top: 90px
+            @media (max-width: 640px)
+                margin-top: 0
+
+        &__item
+            margin-bottom: 24px
+
+            @media (max-width: 640px)
+                margin-bottom: 0.692rem
+
+            &:last-of-type
+                @media (max-width: 640px)
+                    margin-bottom: 0
+
+    .item  
+        color: #ffffff
+        text-decoration: none
+        font-size: $mediumFontSize
+        line-height: 1.733333333333333
+        transition: opacity .2s ease
+
+        @media (max-width: 640px)
+            font-size: $bigFontSize
+        
+        &:hover
+            opacity: .4
+
+        &--active
+            opacity: .6

@@ -1,0 +1,171 @@
+@import './variables'
+    
+    
+.header
+    display: flex
+    justify-content: space-between
+    box-sizing: content-box
+    height: $headerHeight
+    padding-top: $basePagePadding
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    z-index: 1
+
+    @media ( max-width: 640px )
+        padding-top: $mobilePagePadding
+        height: $mobileHeaderHeight
+
+    .logo
+        width: calc($fiveBlocks - 17px)
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: calc($fourBlocks - 17px)
+        @media (max-width: 640px)
+            width: 50%
+        
+        &.hidden
+            @media (min-width: 640px)
+                visibility: visible
+
+        a   
+            position: relative
+            display: block
+            width: 128px
+            cursor: pointer
+            margin-top: -9px
+
+            svg
+                width: 100%
+                height: 28px
+
+                path
+                    transition: fill .2s ease
+
+            &:hover
+                svg path
+                    fill: #777777
+
+    .menu
+        display: flex
+        justify-content: space-between
+        width: calc($fiveBlocks - 15px)
+        
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: calc($fourBlocks - 15px)
+
+        @media (max-width: 640px)
+            width: 50%
+            justify-content: end
+
+        &__title
+            opacity: .4
+            @media (max-width: 640px)
+                display: none
+
+        &__button
+            position: relative
+            top: -33px
+            right: -20px
+            height: 74px
+            background: transparent
+            border: none
+            padding: 0 20px
+            cursor: pointer
+
+            &::after, &::before
+                content: ''
+                position: relative
+                display: block
+                width: $mobilePagePadding
+                height: 2px
+                background: #fff
+                transition: transform .3s ease
+
+                @media ( max-width: 640px )
+                    width: 4.615rem
+                    height: 3px
+
+            &::after
+                top: 2px
+                @media ( max-width: 640px )
+                    top: 3px
+
+            &::before
+                bottom: 2px
+                @media ( max-width: 640px )
+                    bottom: 3px
+
+            &:hover
+                &::after
+                    transform: translateY(-1px)
+                &::before
+                    transform: translateY(1px)
+
+            &.active
+                &::after
+                    transform: translateY(-3px) rotate(135deg)
+
+                    @media (max-width: 640px)
+                        transform: translateY(-3px) rotate(135deg)
+                &::before
+                    transform: translateY(3px) rotate(45deg)
+
+                    @media (max-width: 640px)
+                        transform: translateY(6px) rotate(45deg)
+
+    .linksList
+        position: absolute
+        padding-left: 0
+        margin: 0
+        top: calc($headerHeight + $basePagePadding)
+        list-style: none
+
+        @media (max-width: 640px)
+            display: none
+
+        &__item
+            margin-bottom: 24px
+
+        &__link
+            font-size: $mediumFontSize
+            line-height: 1.733333333333333
+            color: #ffffff
+            text-decoration: none
+            transition: all .2s ease
+
+            &:hover
+                opacity: .4
+    
+    &.dark
+        background: #ffffff
+
+        .logo a
+            transition: opacity .2s ease
+
+            &:hover
+                opacity: .4
+
+            svg path
+                fill: #000000
+                &.white
+                    fill: #ffffff
+        
+        .menu
+            &__button
+                &::after, &::before
+                    background: #000000
+                &.active
+                    &::after, &::before
+                        background: #ffffff
+        
+        .linksList__link
+            color: #000000
+
+            &--active
+                color: #091cab
+
+        &.bg-transparent
+            background: #ffffff00
+            

@@ -1,0 +1,68 @@
+@import './variables'
+    
+.footer
+    position: fixed
+    bottom: $basePagePadding
+    display: flex
+    justify-content: space-between
+    align-items: center
+    z-index: 1
+    height: 31px
+    width: 100%
+
+    @media ( max-width: 640px )
+        bottom: $mobilePagePadding
+
+    &__subtitle
+        position: absolute
+        width: $fiveBlocks
+        right: $fiveBlocks
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            width: $fourBlocks
+            right: $fourBlocks
+
+        @media (max-width: 640px)
+            display: none
+
+    &__social
+        @media (max-width: 640px)
+            display: none
+
+    .links
+
+        &__item
+            color: hsla(0,0%,60%, .5)
+            font-weight: 300
+            text-decoration: underline
+            transition: opacity .2s ease
+
+            @media (max-width: 640px)
+                font-size: $bigFontSize
+
+            &:first-of-type
+                margin-right: 20px
+
+            &:hover
+                opacity: .8
+
+    .subtitle
+        text-decoration: none
+        color: #ffffff
+        transition: opacity .2s ease
+
+        &:hover
+            opacity: .4
+
+    .social
+
+        &__link
+            position: relative
+            display: block
+            width: 25px
+            height: 25px
+            z-index: 1
+
+            svg
+                width: 100%
+                height: 100%
