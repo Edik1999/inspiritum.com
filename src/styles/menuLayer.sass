@@ -15,7 +15,11 @@
 
     @media ( max-width: 640px )
         padding-top: calc($mobileHeaderHeight + $mobilePagePadding)
+        padding-bottom: 8rem
         flex-direction: column
+
+        &.active
+            overflow: auto
 
     &.active
         visibility: visible

@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 import privacy from '../docs/privacy_policy.pdf';
 import privacy_RTB from '../docs/privacy_policy_rtb.pdf';
 
-const Footer = ({disabled, menuState}) => {
+const Footer = ({disabled, menuState, bp}) => {    
 
     return (
-        <footer className='footer sidesPadding'>
+        <footer className={`footer sidesPadding ${disabled && bp === 'mobile' ? "d-none" : "" }`}>
             <div className={`footer__links links ${disabled || menuState ? "hidden" : "" }`}>
                 <Link to={privacy} target="_blank" className='links__item'>Privacy policy</Link>
                 <Link to={privacy_RTB} target="_blank" className='links__item'>Privacy policy RTB</Link>

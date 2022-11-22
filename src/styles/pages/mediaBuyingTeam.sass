@@ -1,0 +1,51 @@
+@import './../variables'
+
+.MediaBuyingTeam
+    &__columns
+        margin: 6.154rem auto 7.692rem
+        position: relative
+
+        @media (max-width: 640px)
+            flex-direction: row
+
+    &__column
+        margin-bottom: 0
+
+    .count
+        font-size: 4.615rem
+        line-height: 1.166666666666667
+        letter-spacing: -.02em
+        padding-bottom: 1.846rem
+        font-weight: bold
+        text-align: right
+        position: relative
+
+        @media (max-width: 1307px) and (min-width: 1201px)
+            font-size: 4.1rem
+
+        @media (max-width: 1062px) and (min-width: 954px)
+            font-size: 4.1rem
+
+        @media (max-width: 953px) and (min-width: 809px)
+            font-size: 3.6rem
+
+        @media (max-width: 953px) and (min-width: 641px)
+            padding-right: $basePagePadding / 2
+
+        @media (max-width: 808px) and (min-width: 641px)
+            font-size: 3rem
+
+        @media (max-width: 640px)
+            padding-right: $mobilePagePadding / 2
+            font-size: 4.3rem
+
+        &::after 
+            content: ""
+            display: block
+            position: absolute
+            right: 0
+            bottom: 0
+            background: #000000
+            height: 2px
+            width: 200%
+        

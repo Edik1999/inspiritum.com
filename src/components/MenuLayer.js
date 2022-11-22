@@ -1,8 +1,18 @@
 import {NavLink, Link} from 'react-router-dom';
 import '../styles/menuLayer.sass';
+import { useEffect } from 'react';
 
 
 const MenuLayer = ({menuState, closeMenu}) => {
+
+    useEffect(() => {
+        if( menuState ) document.body.style.overflow = 'hidden'
+        return () => {
+            document.body.style.overflow = 'hidden auto'
+        };
+    }, [menuState]);
+    
+
     return (
         <div className={`menuLayer ${menuState ? 'active' : ''}`}>
             <div className="menuLayer__nav nav sidesPadding">
@@ -113,7 +123,7 @@ const MenuLayer = ({menuState, closeMenu}) => {
                             className={({ isActive }) => 
                                 isActive ? "item item--active" : "item" 
                             }
-                            to="/technology"
+                            to="/technology/carrier-billing-aggregator-platform"
                         >
                             Technology
                         </NavLink>
@@ -139,7 +149,7 @@ const MenuLayer = ({menuState, closeMenu}) => {
                             className={({ isActive }) => 
                                 isActive ? "item item--active" : "item" 
                             }
-                            to="/contacts"
+                            to="/contacts/cyprus"
                         >
                             Contacts
                         </NavLink>

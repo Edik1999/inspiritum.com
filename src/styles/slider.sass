@@ -1,0 +1,73 @@
+@import './variables'
+
+.slick-prev, .slick-next
+    top: 8px
+    width: auto
+    height: auto
+
+    @media (max-width: 640px)
+        display: none!important
+
+.slick-prev
+    left: unset
+    right: -56px
+
+.slick-next
+    right: -142.5px
+    
+.slick-prev:before, .slick-next:before
+    color: #000
+    font-size: $mediumFontSize
+    font-weight: 600
+    font-family: helvetica
+    opacity: 1
+    transition: opacity .2s ease
+
+.slick-prev:before
+    content: 'Prev'
+
+.slick-next:before
+    content: 'Next'
+
+.slick-next:focus:before, .slick-next:hover:before, .slick-prev:focus:before, .slick-prev:hover:before
+    opacity: .4
+
+.slide
+    position: relative
+    min-height: 34.616rem
+
+    @media (max-width: 640px)
+        min-height: 46.154rem
+
+.slick-dots
+    text-align: left
+    padding-left: $basePagePadding
+
+    @media (max-width: 640px)
+        bottom: -50px
+        padding-left: $mobilePagePadding
+
+    li
+        margin: 0
+        left: -6px
+        top: -10px
+
+        @media (max-width: 640px)
+            width: 24px
+            height: 24px
+
+.slick-dots li button:before
+    color:#dfdfdf
+    opacity: 1
+    font-size: 7px
+    transition: color .2s ease
+
+    @media (max-width: 640px)
+        font-size: 10px
+
+.slick-dots li button:focus:before, .slick-dots li button:hover:before
+    color:#091cab
+
+.slick-dots li.slick-active button:before
+    opacity: 1
+    color:#091cab

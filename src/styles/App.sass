@@ -16,7 +16,7 @@
     visibility: hidden
 
 .d-none
-    display: none
+    display: none!important
 
 .sidesPadding
     padding-left: $basePagePadding
@@ -96,6 +96,7 @@
 .content
     position: relative
     min-height: 100vh
+    height: 100%
     padding-top: calc($headerHeight + $basePagePadding)
     width: calc($fiveBlocks * 4)
 
@@ -108,7 +109,7 @@
 
     &__mainTitle
         margin: 0
-        letter-spacing: -4.8px
+        letter-spacing: -.04em
         font-size: 9.231rem
         line-height: 1
         color: #000000
@@ -119,25 +120,174 @@
 
         @media (max-width: 640px)
             font-size: 5.385rem
-            letter-spacing: -1.8px
+            // letter-spacing: -1.8px
 
         &::after
             content: ""
             display: inline-block
-            width: 18px
-            height: 18px
-            margin-left: 20px
+            width: 0.15em
+            height: 0.15em
+            margin-left: 0.17em
             background: #000000
             border-radius: 100%
-
-            @media (max-width: 640px)
-                width: 7px
-                height: 7px
-                margin-left: 8px
     
     &__wrapper
         width: 75%
         margin-left: auto
     
-        @media (min-width: 641px) and (max-width: 1200px)
+        @media (max-width: 1200px)
             width: 100%
+
+    &__columns
+        display: flex
+
+        @media (max-width: 640px)
+            flex-direction: column
+    
+    &__column
+        width: 33.33%
+        margin-bottom: $mobilePagePadding
+        font-size: $mediumFontSize
+        line-height: 1.733333333333333
+        font-weight: 300
+
+        @media (max-width: 640px)
+            width: 100%!important
+            font-size: $bigFontSize
+
+    &__bigText, &__text
+        max-width: 66.66666666666667%
+        margin-bottom: $mobilePagePadding
+        font-weight: 600
+
+        @media (max-width: 640px)
+            max-width: 100%
+
+    &__bigText
+        font-size: $bigFontSize
+        line-height: 1.416666666666667
+
+    &__text
+        font-size: 1.154rem
+        line-height: 1.733333333333333
+        font-weight: 300
+
+        @media (max-width: 640px)
+            font-size: $bigFontSize
+
+    &__link
+        color: #091cab
+        text-decoration: underline
+        transition: opacity .2s ease
+
+        &:hover
+            opacity: .4
+
+    
+    
+    &__listWithDots
+        margin: 0
+        margin-bottom: $mobilePagePadding
+        padding-left: 0.933em
+        list-style: none
+
+        .listWithDots__item
+            position: relative
+            padding-left: 0.933em
+
+            &::before
+                content: ""
+                width: 4px
+                height: 4px
+                border-radius: 100%
+                background: #000
+                position: absolute
+                display: block
+                left: 0
+                top: 0.6em
+
+    &__subtitle
+        color: #999
+        margin-bottom: 1.231rem
+        font-weight: 300
+
+    .infoList
+
+        &__item
+            margin-bottom: 5em
+
+            @media (max-width: 640px)
+                text-align: center
+
+        .content__bigText
+            margin-bottom: 0.5em
+            max-width: 100%
+
+    &__icon
+        display: block
+        font-size: 4.615rem
+        margin-bottom: 2.692rem
+        width: 1em
+        height: 1em
+
+    &__footer
+        background: #f8f8f8
+        position: absolute
+        right: -25%
+        left: 0
+        padding: 7.692rem 50% 7.692rem 25%
+
+        @media (min-width: 641px) and (max-width: 1200px)
+            right: -33.33333%
+            padding: 7.692rem 66.666666% 7.692rem 0
+
+        @media (max-width: 640px)
+            right: 0
+            padding: 7.692rem 0
+
+        .content__bigText
+            width: 53%
+            margin-bottom: 2.308rem
+
+            @media (max-width: 640px)
+                width: 56.67%
+
+        .content__column
+            width: 50%
+            margin-bottom: 2.308rem
+
+        .content__listWithDots
+            margin-bottom: 1.923rem
+
+        .content__link--requset
+            @media (max-width: 640px)
+                position: absolute
+                top: 0
+                right: $mobilePagePadding
+                max-width: 27.5%
+                text-align: right
+                line-height: 1.416666666666667
+                
+
+.adPlatform, .carrierBillingAggregatorPlatform
+    @media (max-width: 640px)
+        padding-top: 8.462rem
+
+    .menu
+        display: flex
+        padding-top: 2.615rem
+        padding-bottom: 2.308rem
+        background: #f4f3f3
+        margin-bottom: 7.538rem
+
+        .item
+            width: 50%
+
+            &__link
+                color: #000
+                text-decoration: none
+                font-size: 1.846rem
+                line-height: 1.416666666666667
+
+                &--active
+                    color: #091cab

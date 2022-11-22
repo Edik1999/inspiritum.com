@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import '../styles/pages/home.sass';
 import '../styles/animation.sass';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import useAnimationState from '../hooks/useAnimationState';
+import { useRef } from 'react';
 
 const Home = () => {
 
-    const [animationState, setAnimationState] = useState();
-
-    useEffect(() => {
-        setAnimationState(true)
-        return () => {
-            setAnimationState(false)
-        };
-    }, []);
+    let animationState = useAnimationState();
+    const nodeRef = useRef(null);
 
     return (
         
@@ -24,9 +19,10 @@ const Home = () => {
                 in={animationState}
                 timeout={900}
                 mountOnEnter
-                unmountOnExit>
+                unmountOnExit
+                nodeRef={nodeRef}>
 
-                <h1 className='home__title content__mainTitle'>Inspiration<br />creates<br />awesome mobile<br />solutions</h1>
+                <h1 className='home__title content__mainTitle' ref={nodeRef}>Inspiration<br />creates<br />awesome mobile<br />solutions</h1>
 
             </CSSTransition>
 

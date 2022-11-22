@@ -19,15 +19,16 @@
 
     .logo
         width: calc($fiveBlocks - 17px)
+        z-index: 2
 
         @media (min-width: 641px) and (max-width: 1200px)
             width: calc($fourBlocks - 17px)
         @media (max-width: 640px)
             width: 50%
         
-        &.hidden
-            @media (min-width: 640px)
-                visibility: visible
+        // &.hidden
+        //     @media (min-width: 640px)
+        //         visibility: visible
 
         a   
             position: relative
@@ -51,6 +52,7 @@
         display: flex
         justify-content: space-between
         width: calc($fiveBlocks - 15px)
+        z-index: 2
         
         @media (min-width: 641px) and (max-width: 1200px)
             width: calc($fourBlocks - 15px)
@@ -61,6 +63,7 @@
 
         &__title
             opacity: .4
+            transition: opacity .2s ease
             @media (max-width: 640px)
                 display: none
 
@@ -121,12 +124,13 @@
         margin: 0
         top: calc($headerHeight + $basePagePadding)
         list-style: none
+        transition: opacity .2s ease
 
         @media (max-width: 640px)
             display: none
 
         &__item
-            margin-bottom: 24px
+            margin-bottom: 1.846rem
 
         &__link
             font-size: $mediumFontSize
