@@ -19,6 +19,9 @@ import CarrierBillingAggregatorPlatform from './pages/CarrierBillingAggregatorPl
 import AdPlatform from './pages/AdPlatform';
 
 
+import useWindowDimension from './hooks/useWindowDimension';
+
+
 function App() {
 
   let currentBreakPoint = useDetectDevice();
@@ -32,21 +35,22 @@ function App() {
     document.body.style.color = "#ffffff"
   }
 
+  const [width, height] = useWindowDimension();
+
   useEffect(() => {
+
     setTimeout(function(){
       let body = document.body,
-        html = document.documentElement,
-        height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-
+      html = document.documentElement,
+      calcHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
       body.style.overflow = 'hidden auto';
-      body.style.height = height + 'px';
-      
+      body.style.height = calcHeight + 'px';
     }, 920)
     return () => {
       document.body.style.overflow = 'hidden';
       document.body.style.height = 'auto';
     };
-  }, [location.pathname]);
+  }, [height, width]);
 
   const [menuState, setMenuState] = useState(false);
 
