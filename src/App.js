@@ -45,12 +45,12 @@ function App() {
       calcHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
       body.style.overflow = 'hidden auto';
       body.style.height = calcHeight + 'px';
-    }, 920)
+    }, 900)
     return () => {
       document.body.style.overflow = 'hidden';
       document.body.style.height = 'auto';
     };
-  }, [height, width]);
+  }, [location.pathname, height, width]);
 
   const [menuState, setMenuState] = useState(false);
 
