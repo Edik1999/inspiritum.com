@@ -1,28 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const mobileTechnologyMenu = ({element}) => {
+const mobileTechnologyMenu = ({elements, activeClass}) => {
     
     return (
-        <div className={`${element}__menu menu`}>
+        <div className={`${activeClass}__menu menu`}>
             <div className="menu__item item sidesPadding">
                 <NavLink
-                    to="/technology/carrier-billing-aggregator-platform"
+                    to={elements.item1.link}
                     className={({ isActive }) =>
                         isActive ? "item__link item__link--active" : "item__link"
                     }
                 >
-                    Carrier Billing Aggregator platform
+                    {elements.item1.title}
                 </NavLink>
             </div>
             <div className="menu__item item sidesPadding">
                 <NavLink
-                    to="/technology/ad-platform"
+                    to={elements.item2.link}
                     className={({ isActive }) =>
                         isActive ? "item__link item__link--active" : "item__link"
                     }
                 >
-                    Ad Platform
+                    {elements.item2.title}
                 </NavLink>
             </div>
         </div>

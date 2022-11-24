@@ -2,7 +2,8 @@ import useAnimationState from '../hooks/useAnimationState';
 import { CSSTransition } from 'react-transition-group';
 import '../styles/pages/carrierBillingAggregatorPlatform.sass';
 import { useRef } from 'react';
-import MobileTechnologyMenu from '../components/menu/mobileTechnologyMenu'
+import MobileMenu from '../components/mobileMenu/MobileMenu';
+import {technologyMenuItems} from '../components/mobileMenu/mobileMenuItems';
 
 
 const CarrierBillingAggregatorPlatform = ({bp}) => {
@@ -12,11 +13,13 @@ const CarrierBillingAggregatorPlatform = ({bp}) => {
     const nodeRef1 = useRef(null),
         nodeRef2 = useRef(null);
 
+    
+
     return (
         <div className='carrierBillingAggregatorPlatform content'>
 
             { bp === 'mobile' &&
-                <MobileTechnologyMenu element="carrierBillingAggregatorPlatform"/>
+                <MobileMenu elements={technologyMenuItems} activeClass='carrierBillingAggregatorPlatform'/>
             }
 
             <CSSTransition

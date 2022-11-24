@@ -1,12 +1,18 @@
 import './styles/App.sass';
 import './styles/slider.sass';
+
 import React, { useState, useEffect } from 'react';
 import {useLocation, Routes, Route, Navigate} from 'react-router-dom';
-import Home from './pages/Home';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 import updateFontSize from './helpers/calcFontSize';
+
 import useDetectDevice from './hooks/useDetectDevice';
+import useWindowDimension from './hooks/useWindowDimension';
+
+import Home from './pages/Home';
 import ForPublishersAndAffilateNetworks from './pages/ForPublishersAndAffilateNetworks';
 import ForAdNetworks from './pages/ForAdNetworks';
 import ForMobileNetworkOperators from './pages/ForMobileNetworkOperators';
@@ -17,9 +23,7 @@ import CarrierBillingAggregator from './pages/CarrierBillingAggregator';
 import MediaBuyingTeam from './pages/MediaBuyingTeam';
 import CarrierBillingAggregatorPlatform from './pages/CarrierBillingAggregatorPlatform';
 import AdPlatform from './pages/AdPlatform';
-
-
-import useWindowDimension from './hooks/useWindowDimension';
+import Contacts from './pages/Contacts';
 
 
 function App() {
@@ -96,6 +100,25 @@ function App() {
         <Route path="/technology" element={<Navigate to="/technology/carrier-billing-aggregator-platform" replace />}/>
         <Route path="/technology/carrier-billing-aggregator-platform" element={<CarrierBillingAggregatorPlatform bp={currentBreakPoint}/> }/>
         <Route path="/technology/ad-platform" element={<AdPlatform bp={currentBreakPoint}/> }/>
+
+        <Route path="/contacts" element={<Navigate to="/contacts/cyprus" replace />}/>
+        <Route path="/contacts/cyprus" element={
+          <Contacts
+            bp={currentBreakPoint} 
+            mainTitle={<>Head Office<br />in Cyprus</>} 
+            tel={'+357 221 05 723'} 
+            address={<>Foti Pitta 9,<br />office 301<br />1065, Nicosia, Cyprus</>} 
+            initialMapCenter={{lat: 35.16501, lng: 33.361447}} 
+            mapCenter={{lat: 35.16501, lng: 33.361447}}/> }/>
+        <Route path="/contacts/singapore" element={
+          <Contacts
+            bp={currentBreakPoint} 
+            mainTitle={<>Office<br />in Singapore</>} 
+            tel={'+65 8333 6404'} 
+            address={<>105 Cecil Street, #16-05,<br />the Octagon, Singapore,<br />069534</>} 
+            initialMapCenter={{lat: 1.280546, lng: 103.849209}} 
+            mapCenter={{lat: 1.280546, lng: 103.849209}} /> }/>
+
         {/* <Route path="/technology/:id" element={<CarrierBillingAggregatorPlatform /> }/> */}
         
         <Route path="*" element={<Navigate to="/" replace />}/>
