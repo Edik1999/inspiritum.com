@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import googleMapStyles from '../helpers/contacts.map.styles';
 import useDetectDevice from '../hooks/useDetectDevice';
 
-const Maps = ({initialCenter, center, google}) => {
+const Maps = ({ initialCenter, center, google }) => {
 
     let bp = useDetectDevice(),
     width;

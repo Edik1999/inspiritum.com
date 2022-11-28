@@ -36,8 +36,8 @@ const MobileOffers = ({ bp }) => {
 
     let animationState = useAnimationState();
 
-    const targetRef = useIntersect(() => { }, { rootMargin: '-300px' });
-    const secondRef = useIntersect(() => { document.querySelector('.map').classList.toggle('translated') }, { rootMargin: '0px' });
+    // const targetRef = useIntersect(() => { }, { rootMargin: '-300px' });
+    const targetRef = useIntersect(() => { document.querySelector('.map').classList.toggle('translated') }, { rootMargin: '0px' });
 
     const settings = {
         dots: true,
@@ -201,8 +201,8 @@ const MobileOffers = ({ bp }) => {
                 unmountOnExit
                 nodeRef={targetRef}>
 
-                <div className="mobileOffers__footer content__footer" ref={targetRef}>
-                    <img src={bp !== 'mobile' ? footerMap : footerMapMobile} alt="map" className={`map ${bp === 'mobile' && 'translated' }`} ref={secondRef}/>
+                <div className="mobileOffers__footer content__footer">
+                    <img src={bp !== 'mobile' ? footerMap : footerMapMobile} alt="map" className={`map ${bp === 'mobile' && 'translated' }`} ref={targetRef}/>
                     <img src={RF} alt="Russia" className="hoverImg RF" />
                     <img src={Hungary} alt="Hungary" className="hoverImg Hungary" />
                     <img src={SouthAfrica} alt="South Africa" className="hoverImg SouthAfrica" />

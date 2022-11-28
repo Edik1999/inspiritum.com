@@ -6,10 +6,14 @@ import Mailto from '../components/Mailto';
 import Maps from '../components/Maps';
 import MobileMenu from '../components/mobileMenu/MobileMenu';
 import {contactsMenuItems} from '../components/mobileMenu/mobileMenuItems';
+import useIntersect from '../hooks/useIntersect';
+
 
 const ContactsCyprus = ({bp, mainTitle, tel, address, initialMapCenter, mapCenter}) => {
 
     let animationState = useAnimationState();
+
+    const targetRef = useIntersect(() => { }, { rootMargin: '-350px' });
 
     const nodeRef1 = useRef(null),
         nodeRef2 = useRef(null);
@@ -55,7 +59,9 @@ const ContactsCyprus = ({bp, mainTitle, tel, address, initialMapCenter, mapCente
                             {address}
                         </div>
                     </div>
-                    <Maps initialCenter={initialMapCenter} center={mapCenter}/>
+                    <div ref={targetRef} style={{height: `calc(50vh + 7.69231rem)`}}>
+                        <Maps initialCenter={initialMapCenter} center={mapCenter}/>
+                    </div>
                 </div>
 
             </CSSTransition>
