@@ -63,7 +63,7 @@ const News = () => {
                                     year = moment.unix(item.date).format('YYYY');
                                     withYear = true;
                                 }
-                                
+
                                 return (
                                     <div className="news__monthWrapper" key={uuid()}>
                                         <div className="news__month sidesPadding">
@@ -104,4 +104,3 @@ const News = () => {
 }
 
 export default News;
-
