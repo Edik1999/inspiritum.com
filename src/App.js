@@ -24,6 +24,8 @@ import MediaBuyingTeam from './pages/MediaBuyingTeam';
 import CarrierBillingAggregatorPlatform from './pages/CarrierBillingAggregatorPlatform';
 import AdPlatform from './pages/AdPlatform';
 import Contacts from './pages/Contacts';
+import News from './pages/News';
+
 
 
 function App() {
@@ -118,6 +120,9 @@ function App() {
             address={<>105 Cecil Street, #16-05,<br />the Octagon, Singapore,<br />069534</>} 
             initialMapCenter={{lat: 1.280546, lng: 103.849209}} 
             mapCenter={{lat: 1.280546, lng: 103.849209}} /> }/>
+
+        <Route path="/news" element={<News /> }/>
+
 
         {/* <Route path="/technology/:id" element={<CarrierBillingAggregatorPlatform /> }/> */}
         

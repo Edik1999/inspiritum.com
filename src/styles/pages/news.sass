@@ -1,0 +1,54 @@
+@import './../variables'
+
+.news
+    &__wrapper
+        margin-left: 0
+
+    &__monthWrapper
+        display: flex
+
+    &__month
+        width: 33.333333%
+        font-size: 1.154rem
+        line-height: 1.733333333333333
+        font-weight: 300
+
+    &__list
+        width: 66.66666%
+
+    .item
+        margin-bottom: 5.077rem
+
+        &.secondItem, &.thirdItem
+            display: inline-block
+            width: 50%
+
+        &.secondItem
+            padding-right: $basePagePadding
+
+        &.thirdItem
+            padding-left: $basePagePadding
+
+        &__link
+            transition: opacity .2s ease
+
+            &:hover
+                opacity: 0.8
+
+        &__img
+            width: 100%
+            margin-bottom: 0.769rem
+
+        &__month
+            font-size: 1.154rem
+            line-height: 1.733333333333333
+            color: #dfdfdf
+            margin-bottom: 1.846rem
+            margin-top: 0
+
+        &__title
+            font-size: 1.846rem
+            line-height: 1.416666666666667
+            text-decoration: underline
+            margin: 0
+            color: #000000

@@ -31,7 +31,7 @@ const MenuContacts = () => {
                 <a href="https://www.facebook.com/inspiritum.ltd" target="_blank" rel="noopener noreferrer" className="linksList__link linksList__link--social">
                     <img src={facebook} alt="facebook"/>
                 </a>
-                <a href="https://ru.linkedin.com/company/inspiritum-ltd" target="_blank" rel="noopener noreferrer" className="linksList__link linksList__link--social">
+                <a href="https://www.linkedin.com/company/inspiritum-ltd" target="_blank" rel="noopener noreferrer" className="linksList__link linksList__link--social">
                     <img src={linkedIn} alt="Linked In"/>
                 </a>
             </li>
