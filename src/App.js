@@ -25,7 +25,7 @@ import CarrierBillingAggregatorPlatform from './pages/CarrierBillingAggregatorPl
 import AdPlatform from './pages/AdPlatform';
 import Contacts from './pages/Contacts';
 import News from './pages/News';
-
+import NewsItem from './pages/NewsItem';
 
 
 function App() {
@@ -43,8 +43,13 @@ function App() {
 
   const [width, height] = useWindowDimension();
 
-  useEffect(() => {
+  const [Loading, setLoading] = useState(true);
 
+  function loading(load){
+    setLoading(load);
+  }
+
+  useEffect(() => {
     setTimeout(function(){
       let body = document.body,
       html = document.documentElement,
@@ -56,7 +61,7 @@ function App() {
       document.body.style.overflow = 'hidden';
       document.body.style.height = 'auto';
     };
-  }, [location.pathname, height, width]);
+  }, [location.pathname, height, Loading]);
 
   const [menuState, setMenuState] = useState(false);
 
@@ -121,10 +126,8 @@ function App() {
             initialMapCenter={{lat: 1.280546, lng: 103.849209}} 
             mapCenter={{lat: 1.280546, lng: 103.849209}} /> }/>
 
-        <Route path="/news" element={<News /> }/>
-
-
-        {/* <Route path="/technology/:id" element={<CarrierBillingAggregatorPlatform /> }/> */}
+        <Route path="/news" element={<News loading={Loading} loadingFunc={loading}/> }/>
+        <Route path="/news/:id" element={<NewsItem loading={Loading} loadingFunc={loading}/> }/>
         
         <Route path="*" element={<Navigate to="/" replace />}/>
 

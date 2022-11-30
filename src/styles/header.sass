@@ -17,6 +17,17 @@
         padding-top: $mobilePagePadding
         height: $mobileHeaderHeight
 
+    &__link
+        position: absolute
+        z-index: 2
+        left: 20%
+        color: #000000
+        text-decoration: none
+        transition: all .2s ease
+
+        &:hover
+            opacity: .4
+
     .logo
         width: calc($fiveBlocks - 17px)
         z-index: 2

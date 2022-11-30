@@ -1,33 +1,55 @@
 @import './../variables'
 
 .news
-    &__wrapper
-        margin-left: 0
+    @media (max-width: 640px)
+        padding-top: 9.88rem
 
-    &__monthWrapper
+    &__wrapper
         display: flex
+        flex-wrap: wrap
+        margin: 0 auto
+        width: 50%
+
+        @media (max-width: 1200px)
+            width: 66.66666%
+            margin: 0 0 0 auto
+
+        @media (max-width: 640px)
+            width: 100%
+            margin: 0
 
     &__month
         width: 33.333333%
         font-size: 1.154rem
         line-height: 1.733333333333333
         font-weight: 300
+        position: absolute
+        top: 0
+        left: -50%
+
+        @media (max-width: 640px)
+            position: relative
+            left: auto
+            margin-bottom: 1.154rem
+            font-size: 1.846rem
+            padding: 0
 
     &__list
         width: 66.66666%
+        margin-left: auto
 
     .item
         margin-bottom: 5.077rem
-
-        &.secondItem, &.thirdItem
-            display: inline-block
-            width: 50%
+        position: relative
 
         &.secondItem
-            padding-right: $basePagePadding
+            display: inline-block
+            width: 50%
+            flex: 1
 
-        &.thirdItem
-            padding-left: $basePagePadding
+            @media (max-width: 640px)
+                width: 100%
+                flex: none
 
         &__link
             transition: opacity .2s ease
@@ -45,6 +67,9 @@
             color: #dfdfdf
             margin-bottom: 1.846rem
             margin-top: 0
+
+            @media (max-width: 640px)
+                font-size: 1.846rem
 
         &__title
             font-size: 1.846rem

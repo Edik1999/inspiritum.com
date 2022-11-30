@@ -1,103 +1,115 @@
-import useAnimationState from '../hooks/useAnimationState';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import '../styles/pages/news.sass';
 import { useEffect, useState, useRef } from 'react';
-import { news } from '../mocks/news.js';
 import moment from 'moment';
 import uuid from 'react-uuid';
 
-const News = () => {
+import Loader from '../components/Loader';
+
+const News = ({loading, loadingFunc}) => {
 
     const [newsItems, setNewsItems] = useState([]);
-    const [Loading, setLoading] = useState(true);
-
-    let animationState = useAnimationState();
+    const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
-        // setTimeout(() => {
-            setLoading(false);
-            setNewsItems(news.sort((a,b) => b.date - a.date));
-        // }, 1000)
-    }, [newsItems]);
+
+        fetch('https://63877b80e399d2e473007a2a.mockapi.io/news')
+        .then( response => response.json())
+        .then( result => {
+            setNewsItems(result.sort((a,b) => moment(b.date).format('YYYY') - moment(a.date).format('YYYY')));
+            loadingFunc(false);
+            setTimeout(() => {
+                setStartAnimation(true);
+            }, 20);
+        })
+
+        return () => {
+            loadingFunc(true);
+        };
+    }, []);
 
     const nodeRef1 = useRef(null),
         nodeRef2 = useRef(null);
 
-    let twoColumns = false,
-        withYear = false,
-        year;
+    let withYear = false,
+        year,
+        month,
+        newMonth = false;
 
 
     return (
         <div className='news content'>
-            <CSSTransition
-                classNames="animation"
-                in={animationState}
-                timeout={900}
-                mountOnEnter
-                unmountOnExit
-                nodeRef={nodeRef1}>
+            { !loading 
+                ?
+                    <>
+                        <CSSTransition
+                            classNames="animation"
+                            in={startAnimation}
+                            timeout={900}
+                            mountOnEnter
+                            unmountOnExit
+                            nodeRef={nodeRef1}>
 
-                <h1 className='news__title content__mainTitle sidesPadding' ref={nodeRef1}>News</h1>
+                            <h1 className='news__title content__mainTitle sidesPadding' ref={nodeRef1}>News</h1>
 
-            </CSSTransition>
+                        </CSSTransition>
+                
+                        <CSSTransition
+                            classNames="animation"
+                            in={startAnimation}
+                            timeout={900}
+                            mountOnEnter
+                            unmountOnExit
+                            nodeRef={nodeRef2}>
 
-            <CSSTransition
-                classNames="animation"
-                in={animationState}
-                timeout={900}
-                mountOnEnter
-                unmountOnExit
-                nodeRef={nodeRef2}>
+                            <div className="news__wrapper content__wrapper" ref={nodeRef2}>
 
-                <div className="news__wrapper content__wrapper" ref={nodeRef2}>
+                                {newsItems.map((item) => {
 
-                    {
-                        !Loading ?
-                            newsItems.map((item) => {
+                                    withYear = false;
+                                    newMonth = false;
 
-                                withYear = false;
+                                    if (year !== moment(item.date).format('YYYY')){
+                                        year = moment(item.date).format('YYYY');
+                                        withYear = true;
+                                    }
 
-                                if (year !== moment.unix(item.date).format('YYYY')){
-                                    year = moment.unix(item.date).format('YYYY');
-                                    withYear = true;
-                                }
+                                    if (month !== moment(item.date).format('MMMM')){
+                                        month = moment(item.date).format('MMMM');
+                                        newMonth = true;
+                                    }
 
-                                return (
-                                    <div className="news__monthWrapper" key={uuid()}>
-                                        <div className="news__month sidesPadding">
-                                            {moment.unix(item.date).format(`MMMM ${withYear ? ' YYYY' : ''}`)}
-                                        </div>
-                                        <div className="news__list sidesPadding">
-                                            {   
-                                                item.items.map((el, index) => {
-                                                    if (item.items.length > 2) {
-                                                       twoColumns = true;
-                                                    }
-                                                    return (
-                                                        <div className={`news__item item ${twoColumns && index === 1 ? 'secondItem' : ''} ${twoColumns && index === 2 ? 'thirdItem' : ''}`} key={uuid()}>
-                                                            {twoColumns = false}
-                                                            <p className="item__month">{moment.unix(el.date).format('DD MMMM')}</p>
-                                                            <Link to={`/news/${el.newsId}`} className='item__link'>
-                                                                <img src={process.env.PUBLIC_URL + el.img} alt="" className='item__img' />
-                                                                <p className="item__title">{el.title}</p>
-                                                            </Link>
-                                                        </div>
-                                                    )
-                                                })
+                                    return (
+                                        <div className={`news__item item sidesPadding ${!newMonth && 'secondItem'}`} key={uuid()}>
+                                            { newMonth 
+                                                ?
+                                                    <div className="news__month sidesPadding">
+                                                        {moment(item.date).format(`MMMM ${withYear ? ' YYYY' : ''}`)}
+                                                    </div>
+                                                :
+                                                    null
                                             }
+                                            <p className="item__month">{moment(item.date).format('DD MMMM')}</p>
+                                            <Link to={`/news/${item.id}`} className='item__link'>
+
+                                                {/* !!!!!! img для fake api, раскоментить нижний для прода !!!!!!*/}
+                                                <img src={item.image} alt="" className='item__img' />
+                                                {/* <img src={process.env.PUBLIC_URL + item.image} alt="" className='item__img' /> */}
+                                                <p className="item__title">{item.title}</p>
+                                            </Link>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        :
-                            null
-                    }
+                                    )
+                                })}
 
-                </div>
+                            </div>
 
-            </CSSTransition>
+                        </CSSTransition>
+                    </>
+                :
+                    <Loader/>
+                            
+            }
 
         </div>
     );
