@@ -1,10 +1,20 @@
 @import './../variables'
 
 .newsItem
+    @media (max-width: 640px)
+        padding-top: 9.88rem
 
     &__wrapper
         width: 50%
         margin-left: 25%
+
+        @media ( max-width: 1200px )
+            width: 66.666666%
+            margin-left: 0
+            margin-right: auto
+
+        @media (max-width: 640px)
+            width: 100%
 
     &__bigText
         font-size: 4.615rem
@@ -13,6 +23,9 @@
         margin-bottom: 2.692rem
         max-width: 100%
         white-space: nowrap
+
+        @media ( max-width: 1200px )
+            white-space: normal
 
     &__text
         max-width: 100%
@@ -32,6 +45,13 @@
         font-size: 1.154rem
         line-height: 1.733333333333333
         width: max-content
+
+        @media ( max-width: 1200px )
+            right: 0%
+            top: -30px
+
+        @media (max-width: 640px)
+            font-size: 1.35rem
 
     .slick-prev 
         right: -86px
