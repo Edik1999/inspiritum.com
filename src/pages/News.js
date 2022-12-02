@@ -27,7 +27,7 @@ const News = ({loading, loadingFunc}) => {
         return () => {
             loadingFunc(true);
         };
-    }, []);
+    }, [loadingFunc]);
 
     const nodeRef1 = useRef(null),
         nodeRef2 = useRef(null);
@@ -92,7 +92,6 @@ const News = ({loading, loadingFunc}) => {
                                             }
                                             <p className="item__month">{moment(item.date).format('DD MMMM')}</p>
                                             <Link to={`/news/${item.id}`} className='item__link'>
-
                                                 {/* !!!!!! img для fake api, раскоментить нижний для прода !!!!!!*/}
                                                 <img src={item.image} alt="" className='item__img' />
                                                 {/* <img src={process.env.PUBLIC_URL + item.image} alt="" className='item__img' /> */}

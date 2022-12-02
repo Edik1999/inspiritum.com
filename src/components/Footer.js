@@ -2,8 +2,11 @@ import '../styles/footer.sass';
 import {Link} from 'react-router-dom';
 import privacy from '../docs/privacy_policy.pdf';
 import privacy_RTB from '../docs/privacy_policy_rtb.pdf';
+import { useNavigate } from 'react-router-dom';
 
-const Footer = ({disabled, menuState, bp}) => {    
+const Footer = ({disabled, menuState, bp, location}) => {
+
+    const navigate = useNavigate();
 
     return (
         <footer className={`footer sidesPadding ${(disabled && bp === 'mobile') || menuState ? "d-none" : "" }`}>
@@ -25,6 +28,12 @@ const Footer = ({disabled, menuState, bp}) => {
                     </svg>
                 </a>
             </div>
+            { location === '/feedback' 
+                ?
+                    <button className="sidesPadding footer__closeFeedback" onClick={() => navigate(-1)}>Close Feedback</button>
+                :
+                    null
+            }
         </footer>
     );
 }

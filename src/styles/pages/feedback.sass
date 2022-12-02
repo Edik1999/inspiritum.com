@@ -1,0 +1,149 @@
+@import './../variables'
+
+.feedback
+    @media (max-width: 1200px)
+        width: 100%
+
+    &__mainTitle
+        color: #ffffff
+
+        &::after
+            background: #ffffff
+
+    &__wrapper
+        width: 100%
+
+    .form
+        @media (max-width: 640px)
+            padding-bottom: $mobilePagePadding
+
+        &__input
+            outline: 0
+            padding: 0
+            font: inherit
+            border: 0
+            background: none
+
+        &__inputBox
+            position: relative
+            display: flex
+            overflow: hidden
+
+        &__label, &__input
+            width: 25%
+            font-size: 1.385rem
+            font-weight: 300
+
+        &__label
+            display: block
+            margin-top: 0.692rem
+
+            @media (max-width: 640px)
+                display: none
+        
+        &__input
+            border-bottom: 2px solid #ffffff
+            padding-top: 0.308rem
+            height: 3.077rem
+
+            @media (max-width: 640px)
+                line-height: 1.733333333333333
+                padding-top: 1.231rem
+                height: 5.385rem
+
+        &__textarea
+            position: relative
+            width: 50%
+            resize: none
+            height: 12.308rem
+            overflow: hidden
+            border: 0
+            padding: 0
+            // z-index: 2
+            outline: none
+            font: inherit
+            font-size: 1.385rem
+            font-weight: 300
+            line-height: 3.077rem
+
+            @media (max-width: 640px)
+                padding-top: 0.538rem
+                height: 21.538rem
+                line-height: 5.385rem
+
+        &__input, &__textarea
+            color: #ffffff
+            background: none
+
+            @media (max-width: 640px)
+                width: 100%
+                font-size: 1.846rem
+
+        
+        &__lines
+            position: absolute
+            width: 50%
+            left: 25%
+            // z-index: 1
+            top: 0
+
+            @media (max-width: 640px)
+                width: 100%
+                left: 0
+
+        &__line
+            &::after, &::before
+                content: ""
+                display: block
+                right: 0
+                left: 0
+                height: 3.077rem
+                box-sizing: border-box
+                border-bottom: 2px solid #ffffff
+
+                @media (max-width: 640px)
+                height: 5.385rem
+            
+        &__error
+            color: #c00
+            margin-top: 1.077rem
+            margin-bottom: 0
+            max-width: 25%
+
+            @media (max-width: 640px)
+                position: absolute
+                padding: 0
+                right: 0
+                top: 0
+                margin-top: 3rem
+                max-width: unset
+
+        &__submitWrapper
+            margin-top: 3.077rem
+            margin-left: 25%
+
+            @media (max-width: 640px)
+                margin-left: 0
+
+        &__submit
+            padding: 0 0 0 0.385rem
+            width: 4.615rem
+            height: 4.615rem
+            font-size: 1.846rem
+            color: #fff
+            background: #091cab
+            border-radius: 4.615rem
+            outline: 0
+            border: 0
+            cursor: pointer
+
+            &:disabled 
+                cursor: default
+                background: #333
+
+        &__icon
+            margin: auto
+            display: block
+            width: 1em
+            height: 1em
+            vertical-align: top

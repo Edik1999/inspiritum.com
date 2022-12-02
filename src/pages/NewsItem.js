@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import moment from 'moment';
 import Slider from "react-slick";
 import uuid from 'react-uuid';
+import {useLocation} from 'react-router-dom';
 
 import Loader from '../components/Loader';
 
@@ -29,9 +30,13 @@ const NewsItem = ({loading, loadingFunc}) => {
         afterChange: current => setSlideInfo({ ...slideInfo, activeSlide: current }),
     };
 
+    let location = useLocation(),
+        pathname = location.pathname,
+        id = pathname.match(/\d+/)[0];
+
     useEffect(() => {
 
-        fetch('https://63877b80e399d2e473007a2a.mockapi.io/news/9')
+        fetch(`https://63877b80e399d2e473007a2a.mockapi.io/news/${id}`)
         .then( response => response.json())
         .then( result => {
             setContent(result);
@@ -41,7 +46,7 @@ const NewsItem = ({loading, loadingFunc}) => {
         return () => {
             loadingFunc(true);
         };
-    }, []);
+    }, [id, loadingFunc]);
 
     useEffect(() => {
 
@@ -79,8 +84,10 @@ const NewsItem = ({loading, loadingFunc}) => {
                                     <div className="newsItem__sliderWrapper sidesPadding">
                                         <Slider {...settings}>
                                             {content.images.map(img => {
-                                                 {/* !!!!!! img для fake api, раскоментить нижний для прода !!!!!!*/}
+                                                // eslint-disable-next-line
+                                                {/* !!!!!! img для fake api, раскоментить нижний для прода !!!!!!*/}
                                                 return <img src={img.src} alt="" key={uuid()} />
+                                                // eslint-disable-next-line
                                                 {/* return <img src={process.env.PUBLIC_URL + img.src} alt="" key={uuid()} /> */}
                                             })}
                                         </Slider>

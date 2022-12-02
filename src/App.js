@@ -1,7 +1,7 @@
 import './styles/App.sass';
 import './styles/slider.sass';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {useLocation, Routes, Route, Navigate} from 'react-router-dom';
 
 import Header from './components/Header';
@@ -26,6 +26,7 @@ import AdPlatform from './pages/AdPlatform';
 import Contacts from './pages/Contacts';
 import News from './pages/News';
 import NewsItem from './pages/NewsItem';
+import Feedback from './pages/Feedback';
 
 
 function App() {
@@ -35,19 +36,40 @@ function App() {
 
   let location = useLocation();
 
-  if (location.pathname !== '/'){
-    document.body.style.color = "#000000"
-  } else {
-    document.body.style.color = "#ffffff"
+  switch (location.pathname) {
+    case '/':
+    case '/feedback':
+      document.body.style.color = "#ffffff";
+      break;
+  
+    default:
+      document.body.style.color = "#000000"
+      break;
   }
 
-  const [width, height] = useWindowDimension();
+  let bgClass;
+
+  switch (location.pathname) {
+    case '/':
+      bgClass = 'background__image';
+      break;
+
+    case '/feedback':
+      bgClass = 'background__black';
+      break;
+  
+    default:
+      bgClass = 'background__white';
+      break;
+  }
+
+  const height = useWindowDimension();
 
   const [Loading, setLoading] = useState(true);
 
-  function loading(load){
+  const loading = useCallback(load => {
     setLoading(load);
-  }
+  }, []);
 
   useEffect(() => {
     setTimeout(function(){
@@ -76,7 +98,7 @@ function App() {
   return (
     <>
       <div className='background'>
-        <div className={`background__inner ${location.pathname === '/' ? 'background__image' : 'background__white'}`}></div>
+        <div className={`background__inner ${bgClass}`}></div>
       </div>
 
       <div className='lines'></div>
@@ -84,8 +106,9 @@ function App() {
       <Header 
         menuState={menuState} 
         clickHandler={handleMenuBtnClick} 
-        closeMenu={closeMenu} 
-        uiTheme={location.pathname !== '/' ? 'dark' : '' } 
+        closeMenu={closeMenu}
+        bgTransparent={location.pathname === '/' && true}
+        uiTheme={location.pathname !== '/feedback' ? 'dark' : 'white'}
         bp={currentBreakPoint}
         location={location.pathname}
       />
@@ -128,12 +151,14 @@ function App() {
 
         <Route path="/news" element={<News loading={Loading} loadingFunc={loading}/> }/>
         <Route path="/news/:id" element={<NewsItem loading={Loading} loadingFunc={loading}/> }/>
+
+        <Route path="/feedback" element={<Feedback bp={currentBreakPoint}/> }/>
         
         <Route path="*" element={<Navigate to="/" replace />}/>
 
       </Routes>
 
-      <Footer disabled={location.pathname !== '/' ? 'disabled' : ''} menuState={menuState} bp={currentBreakPoint}/>
+      <Footer disabled={location.pathname !== '/' ? 'disabled' : ''} menuState={menuState} bp={currentBreakPoint} location={location.pathname}/>
     </>
   );
 }
