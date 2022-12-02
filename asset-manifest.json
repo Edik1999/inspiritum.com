@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/inspiritum.com/static/css/main.1b22cd55.css",
+    "main.css": "/inspiritum.com/static/css/main.948960bb.css",
     "main.js": "/inspiritum.com/static/js/main.6eade1dd.js",
     "static/js/787.a647657c.chunk.js": "/inspiritum.com/static/js/787.a647657c.chunk.js",
     "static/media/privacy_policy.pdf": "/inspiritum.com/static/media/privacy_policy.a52a8646533dba23b11a.pdf",
@@ -38,12 +38,12 @@
     "static/media/facebook.svg": "/inspiritum.com/static/media/facebook.f34a1464734be1770605c0645436a750.svg",
     "static/media/antivirus.svg": "/inspiritum.com/static/media/antivirus.5d9ea4342170a74b4ebd812522c64264.svg",
     "static/media/submit.svg": "/inspiritum.com/static/media/submit.305037737d6ebeca9b16ee041ef913d2.svg",
-    "main.1b22cd55.css.map": "/inspiritum.com/static/css/main.1b22cd55.css.map",
+    "main.948960bb.css.map": "/inspiritum.com/static/css/main.948960bb.css.map",
     "main.6eade1dd.js.map": "/inspiritum.com/static/js/main.6eade1dd.js.map",
     "787.a647657c.chunk.js.map": "/inspiritum.com/static/js/787.a647657c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b22cd55.css",
+    "static/css/main.948960bb.css",
     "static/js/main.6eade1dd.js"
   ]
 }
