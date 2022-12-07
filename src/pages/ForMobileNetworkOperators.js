@@ -2,7 +2,6 @@ import useAnimationState from '../hooks/useAnimationState';
 import useIntersect from '../hooks/useIntersect';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import '../styles/pages/forMobileNetworkOperators.sass';
 import Slider from "react-slick";
 import { useRef } from 'react';
 

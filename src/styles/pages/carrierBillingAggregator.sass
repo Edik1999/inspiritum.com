@@ -1,4 +1,4 @@
-@import './../variables'
+@import './../helpers/variables'
 
 .carrierBillingAggregator
     &__phoneImg
@@ -22,7 +22,7 @@
             margin-bottom: 2.308rem
 
             @media (max-width: 640px)
-                margin-bottom: 1.154rem
+                margin-bottom: $mediumFontSize
 
     &__text
         margin-bottom: 4.308rem
@@ -39,11 +39,11 @@
             right: 0
 
         .item
-            width: 20%
+            width: $fiveBlocks
             margin-bottom: 0
 
             @media (max-width: 1200px)
-                width: 25%
+                width: $fourBlocks
 
             @media (max-width: 640px)
                 width: 50%
@@ -64,7 +64,7 @@
 
             &__operator
                 display: flex
-                font-size: 1.154rem
+                font-size: $mediumFontSize
 
                 @media (max-width: 1200px)
                     padding-right: 0
@@ -97,13 +97,13 @@
                 margin-bottom: 0.8em
 
                 @media (max-width: 640px)
-                    font-size: 1.846rem
+                    font-size: $bigFontSize
 
             &__count
                 margin: 0
                 font-weight: 300
 
                 @media (max-width: 640px)
-                    font-size: 1.846rem
+                    font-size: $bigFontSize
 
         

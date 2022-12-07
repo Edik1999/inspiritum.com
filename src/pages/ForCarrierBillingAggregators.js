@@ -1,7 +1,6 @@
 import useAnimationState from '../hooks/useAnimationState';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import '../styles/pages/forCarrierBillingAggregators.sass';
 import { useRef } from 'react';
 
 const ForCarrierBillingAggregators = () => {

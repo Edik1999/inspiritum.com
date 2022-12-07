@@ -1,11 +1,11 @@
-import './styles/App.sass';
-import './styles/slider.sass';
+import './styles/layout/App.sass';
+import './styles/helpers/slider.sass';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import {useLocation, Routes, Route, Navigate} from 'react-router-dom';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 
 import updateFontSize from './helpers/calcFontSize';
 

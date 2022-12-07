@@ -4,8 +4,8 @@ import useAnimationState from '../hooks/useAnimationState';
 import { useRef } from 'react';
 import Mailto from '../components/Mailto';
 import Maps from '../components/Maps';
-import MobileMenu from '../components/mobileMenu/MobileMenu';
-import {contactsMenuItems} from '../components/mobileMenu/mobileMenuItems';
+import MobileMenu from '../components/menu/mobileMenu/MobileMenu';
+import {contactsMenuItems} from '../components/menu/mobileMenu/mobileMenuItems';
 import useIntersect from '../hooks/useIntersect';
 
 

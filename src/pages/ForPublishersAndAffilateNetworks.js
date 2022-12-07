@@ -1,5 +1,4 @@
 import { CSSTransition } from 'react-transition-group';
-import '../styles/pages/forPublishers.sass';
 import { Link } from 'react-router-dom';
 import useAnimationState from '../hooks/useAnimationState';
 import { useRef } from 'react';

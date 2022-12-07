@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const mobileTechnologyMenu = ({elements, activeClass}) => {
+const mobileMenu = ({elements, activeClass}) => {
     
     return (
         <div className={`${activeClass}__menu menu`}>
@@ -29,4 +29,4 @@ const mobileTechnologyMenu = ({elements, activeClass}) => {
     );
 }
 
-export default mobileTechnologyMenu;
+export default mobileMenu;

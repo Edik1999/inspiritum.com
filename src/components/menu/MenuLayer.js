@@ -1,5 +1,5 @@
 import {NavLink, Link} from 'react-router-dom';
-import '../styles/menuLayer.sass';
+import '../../styles/menu/menuLayer.sass';
 import { useEffect } from 'react';
 
 

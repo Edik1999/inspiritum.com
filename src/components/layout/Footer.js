@@ -1,7 +1,7 @@
-import '../styles/footer.sass';
+import '../../styles/layout/footer.sass';
 import {Link} from 'react-router-dom';
-import privacy from '../docs/privacy_policy.pdf';
-import privacy_RTB from '../docs/privacy_policy_rtb.pdf';
+import privacy from '../../docs/privacy_policy.pdf';
+import privacy_RTB from '../../docs/privacy_policy_rtb.pdf';
 import { useNavigate } from 'react-router-dom';
 
 const Footer = ({disabled, menuState, bp, location}) => {

@@ -2,8 +2,8 @@ import useAnimationState from '../hooks/useAnimationState';
 import { CSSTransition } from 'react-transition-group';
 import '../styles/pages/adPlatform.sass';
 import { useRef } from 'react';
-import MobileMenu from '../components/mobileMenu/MobileMenu';
-import {technologyMenuItems} from '../components/mobileMenu/mobileMenuItems';
+import MobileMenu from '../components/menu/mobileMenu/MobileMenu';
+import {technologyMenuItems} from '../components/menu/mobileMenu/mobileMenuItems';
 
 
 const AdPlatform = ({bp}) => {

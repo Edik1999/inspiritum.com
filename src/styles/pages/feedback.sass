@@ -1,4 +1,4 @@
-@import './../variables'
+@import './../helpers/variables'
 
 .feedback
     @media (max-width: 1200px)
@@ -30,7 +30,7 @@
             overflow: hidden
 
         &__label, &__input
-            width: 25%
+            width: $fourBlocks
             font-size: 1.385rem
             font-weight: 300
 
@@ -59,7 +59,6 @@
             overflow: hidden
             border: 0
             padding: 0
-            // z-index: 2
             outline: none
             font: inherit
             font-size: 1.385rem
@@ -77,14 +76,13 @@
 
             @media (max-width: 640px)
                 width: 100%
-                font-size: 1.846rem
+                font-size: $bigFontSize
 
         
         &__lines
             position: absolute
             width: 50%
             left: 25%
-            // z-index: 1
             top: 0
 
             @media (max-width: 640px)
@@ -129,7 +127,7 @@
             padding: 0 0 0 0.385rem
             width: 4.615rem
             height: 4.615rem
-            font-size: 1.846rem
+            font-size: $bigFontSize
             color: #fff
             background: #091cab
             border-radius: 4.615rem

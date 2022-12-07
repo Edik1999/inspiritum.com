@@ -1,10 +1,10 @@
-import '../styles/header.sass'
+import '../../styles/layout/header.sass'
 import { NavLink, Link } from 'react-router-dom';
-import MenuLayer from './MenuLayer';
-import MenuAbout from './menu/MenuAbout';
-import MenuDefault from './menu/MenuDefault';
-import MenuTechnology from './menu/MenuTechnology';
-import MenuContacts from './menu/MenuContacts';
+import MenuLayer from '../menu/MenuLayer';
+import MenuAbout from '../menu/MenuAbout';
+import MenuDefault from '../menu/MenuDefault';
+import MenuTechnology from '../menu/MenuTechnology';
+import MenuContacts from '../menu/MenuContacts';
 
 
 const Header = ({ uiTheme, closeMenu, menuState, clickHandler, bp, location, bgTransparent }) => {
